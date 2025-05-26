@@ -1,0 +1,8 @@
+[PATHS]
+GTAV_DIR=D:\SteamLibrary\steamapps\common\Grand Theft Auto V
+
+ALT_VERSION_DIR=D:\My Games\Mods\Grand Theft Auto V\GTA V VR
+
+CURRENT_VERSION_DIR=D:\My Games\Mods\Grand Theft Auto V\Current_Version_Files
+
+SETTINGS_DIR=D:\Documents\Rockstar Games\GTA V
