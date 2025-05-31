@@ -1,6 +1,6 @@
 >- ⚠️IMPORTANT!!: This tool is not used to initially setup the R.E.A.L. VR mod. 
 That must be set up separately. You can follow this guide: https://www.youtube.com/watch?v=LO_jDnHO0Kk
-- ⚠️Always back up your game data before making changes. Use this tool at your own risk.
+>- ⚠️Always back up your game data before making changes. Use this tool at your own risk.
 
 # GTA5 Version Switcher
 
