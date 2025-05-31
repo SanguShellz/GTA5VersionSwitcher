@@ -1,7 +1,7 @@
-## THIS IS NOT USED TO INTIALLY INSTALL THE VR MOD.  THAT HAS TO BE SETUP INDEPENDENTLY ##
+### THIS IS NOT USED TO INTIALLY INSTALL THE VR MOD.  THAT HAS TO BE SETUP INDEPENDENTLY 
 https://www.youtube.com/watch?v=LO_jDnHO0Kk
 
-# GTA5 Version Switcher Setup
+# GTA5 Version Switcher
 
 ## Overview
 
