@@ -55,5 +55,5 @@ Run the `GTA5 Version Swithcer.bat` to install or remove an alternate version of
 
 ---
 
-## Ensure all directory paths are correctly set in `config.txt` before running the script.
+### Ensure all directory paths are correctly set in `config.txt` before running the script.
 
