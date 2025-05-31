@@ -1,13 +1,13 @@
 >### !! IMPORTANT !!
->- 🛠️This tool is not used to initially setup the R.E.A.L. VR mod. 
-That must be set up separately. Y
->- 📺You can follow this guide: https://www.youtube.com/watch?v=LO_jDnHO0Kk
+>- 🛠️This tool is not used to initially setup the Luke Ross REAL VR mod. 
+That must be set up separately. 
+>- 📺You can follow this guide to install the REAL VR mod: https://www.youtube.com/watch?v=LO_jDnHO0Kk
 >- ⚠️Always back up your game data before making changes. Use this tool at your own risk.
 
 # GTA5 Version Switcher
 
 ## Overview
-This tool lets you easily switch between different versions of GTA V. You can go back to an older version, use a modded setup (like R.E.A.L. VR, Geo11, or updated mods that don't work with R.E.A.L. VR), or return to the original vanilla version for online play or updates. Just follow the steps below to set up and use the installer.
+This tool lets you easily switch between different versions of GTA V. You can go back to an older version, use a modded setup (like REAL VR, Geo11, or updated mods that don't work with RRAL VR), or return to the original vanilla version for online play or updates. Just follow the steps below to set up and use the installer.
 
 ---
 
