@@ -1,4 +1,4 @@
-> ⚠️IMPORTANT!!: This tool is not used to initially setup the Luke Ross GTA5 R.E.A.L. VR mod (or any other mod). That must be set up separately. You can follow this guide to setup the VR mod: https://www.youtube.com/watch?v=LO_jDnHO0Kk
+> ⚠️IMPORTANT!!: This tool is not used to initially setup the R.E.A.L. VR mod. That must be set up separately. You can follow this guide: https://www.youtube.com/watch?v=LO_jDnHO0Kk
 
 # GTA5 Version Switcher
 
