@@ -1,4 +1,4 @@
-> IMPOTANT!!! THIS IS NOT USED TO INTIALLY INSTALL THE VR MOD.  THAT HAS TO BE SETUP INDEPENDENTLY https://www.youtube.com/watch?v=LO_jDnHO0Kk
+> Important: This tool is not used to initially install the VR mod. That must be set up separately. You can follow this guide: https://www.youtube.com/watch?v=LO_jDnHO0Kk
 
 # GTA5 Version Switcher
 
