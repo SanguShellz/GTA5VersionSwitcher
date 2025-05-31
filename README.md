@@ -1,5 +1,6 @@
-> ⚠️IMPORTANT!!: This tool is not used to initially setup the R.E.A.L. VR mod. 
+>- ⚠️IMPORTANT!!: This tool is not used to initially setup the R.E.A.L. VR mod. 
 That must be set up separately. You can follow this guide: https://www.youtube.com/watch?v=LO_jDnHO0Kk
+- ⚠️Always back up your game data before making changes. Use this tool at your own risk.
 
 # GTA5 Version Switcher
 
@@ -52,7 +53,5 @@ Run the `GTA5 Version Swithcer.bat` to install or remove an alternate version of
 
 ---
 
-## Notes
+## Ensure all directory paths are correctly set in `config.txt` before running the script.
 
-- Ensure all directory paths are correctly set in `config.txt` before running the script.
-- Always back up your game data before making changes.
