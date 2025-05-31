@@ -4,8 +4,7 @@ https://www.youtube.com/watch?v=LO_jDnHO0Kk
 # GTA5 Version Switcher
 
 ## Overview
-
-This tool makes it easy to switch between different versions of GTA V, whether it's an older version, a modded setup (e.g., VR), or the original vanilla version for online play or updates. Follow the steps below to configure and use the installer.
+This tool lets you easily switch between different versions of GTA V. You can go back to an older version, use a modded setup (like R.E.A.L. VR, Geo11, or updated mods that don't work with R.E.A.L. VR), or return to the original vanilla version for online play or updates. Just follow the steps below to set up and use the installer.
 
 ---
 
