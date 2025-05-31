@@ -1,4 +1,4 @@
->### !! `IMPORTANT` !!
+>### 📣 IMPORTANT !!
 >- 🛠️This tool is not used to initially setup the Luke Ross REAL VR mod. 
 That must be set up separately. 
 >- 📺You can follow this guide to install the REAL VR mod: https://www.youtube.com/watch?v=LO_jDnHO0Kk
