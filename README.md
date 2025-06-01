@@ -1,6 +1,6 @@
 >### 📣 IMPORTANT 📣
-> ⚠️ Back up your game files before using this tool for the first time. Use at your own risk.
-> ⚠️ GTA5 Version Switcher.bat may need to be ran as administrator for registry and file access.
+> - ⚠️ Back up your game files before using this tool for the first time. Use at your own risk.
+> - ⚠️ GTA5 Version Switcher.bat may need to be ran as administrator for registry and file access.
 
 # GTA5 Version Switcher
 
