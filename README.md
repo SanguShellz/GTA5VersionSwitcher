@@ -1,5 +1,5 @@
 >### 📣 IMPORTANT !!
->⚠️Always back up your game data before making changes. Use this tool at your own risk.
+>⚠️Please back up your game files before using this tool for the first time. Use at your own risk
 
 # GTA5 Version Switcher
 
