@@ -15,8 +15,8 @@ if not exist "%SCRIPT_DIR%config.txt" (
     echo [PATHS]
     echo GTAV_DIR=D:\SteamLibrary\steamapps\common\Grand Theft Auto V
     echo ALT_VERSION_DIR=D:\My Games\GTAV_Mods
-	echo CURRENT_VERSION_DIR=D:\My Games\Mods\Grand Theft Auto\GTA V VR
-	echo SETTINGS_DIR=D:\Documents\Rockstar Games\GTA V
+    echo PRIMARY_VERSION_DIR=D:\My Games\Mods\Grand Theft Auto\GTA V VR
+    echo SETTINGS_DIR=D:\Documents\Rockstar Games\GTA V
     echo -------------------------------
     pause
     exit 1
@@ -37,7 +37,7 @@ for /f "usebackq tokens=1* delims==" %%A in ("%SCRIPT_DIR%config.txt") do (
 :: Verify each directory
 set "missingDir=0"
 
-for %%D in ("!GTAV_DIR!" "!ALT_VERSION_DIR!" "!CURRENT_VERSION_DIR!") do (
+for %%D in ("!GTAV_DIR!" "!ALT_VERSION_DIR!" "!PRIMARY_VERSION_DIR!") do (
     if not exist %%D (
         echo.
         echo Directory not found: %%D
@@ -49,7 +49,7 @@ if %missingDir% gtr 0 (
     echo.
     echo Change directory paths in config.txt
     echo.
-    echo Current [Paths]
+    echo Primary [Paths]
     echo ---------------
     echo.
     echo GTA V Game Directory Path
@@ -58,8 +58,8 @@ if %missingDir% gtr 0 (
     echo Alt Version Directory Path
     echo %ALT_VERSION_DIR%
     echo.
-    echo Current Version Directory Path
-    echo %CURRENT_VERSION_DIR%
+    echo Primary Version Directory Path
+    echo %PRIMARY_VERSION_DIR%
     echo.
     echo Settings Directory Path
     echo %SETTINGS_DIR%
@@ -68,19 +68,17 @@ if %missingDir% gtr 0 (
     goto Exit
 )
 
-
 :: Default files directory
 set DEFAULT_FILES=%GTAV_DIR%\Default_Files_Backup
 
 :: Check Version State
-REG QUERY "HKEY_CURRENT_USER\Software\GTAV_ALT" /v "installed" >nul 2>&1
+REG QUERY "HKCU\Software\GTAV_ALT" /v "installed" >nul 2>&1
 
 if %ERRORLEVEL%==0 (
     goto INSTALL_OPTIONS
 ) else (
     goto INSTALL 
 )
-
 
 :INSTALL
 echo.
@@ -118,11 +116,11 @@ if /i "%choice%"=="1" (
 ) else if /i "%choice%"=="2" (
     goto ALTINSTALL
 ) else (
-	cls
-	echo.
+    cls
+    echo.
     echo Invalid choice. Try again
     timeout /t 2 >nul
-	echo.
+    echo.
     goto INSTALL_OPTIONS
 )
 
@@ -130,7 +128,7 @@ if /i "%choice%"=="1" (
 :: Ensure directories exist
 mkdir "%DEFAULT_FILES%\update" 2>nul
 
-:: Move default files if missing in DEFAULT_FILES
+:: Move primary files if missing in DEFAULT_FILES
 for %%F in (bink2w64.dll GTA5.exe GTAVLanguageSelect.exe GTAVLauncher.exe PlayGTAV.exe) do (
     if not exist "%DEFAULT_FILES%\%%F" move "%GTAV_DIR%\%%F" "%DEFAULT_FILES%" >nul
 )
@@ -141,7 +139,7 @@ for %%F in (update.rpf update2.rpf) do (
 :: Generate Alt Version file list
 set "AltOutputFile=%SCRIPT_DIR%AltVersionList.txt"
 type nul > "%AltOutputFile%"
-    
+
 pushd "%ALT_VERSION_DIR%"
 for /r %%F in (*) do (
     set "AltFilePath=%%F"
@@ -150,24 +148,24 @@ for /r %%F in (*) do (
 )
 popd
 
-:: Generate Current Version file list
-set "CurOutputFile=%SCRIPT_DIR%CurrentVersionList.txt"
+:: Generate Primary Version file list
+set "CurOutputFile=%SCRIPT_DIR%PrimaryVersionList.txt"
 type nul > "%CurOutputFile%"
-    
-pushd "%CURRENT_VERSION_DIR%"
+
+pushd "%PRIMARY_VERSION_DIR%"
 for /r %%F in (*) do (
     set "CurFilePath=%%F"
-    set "CurFilePath=!CurFilePath:%CURRENT_VERSION_DIR%=!"
+    set "CurFilePath=!CurFilePath:%PRIMARY_VERSION_DIR%=!"
     echo !GTAV_DIR!\!CurFilePath:~1!>> "%CurOutputFile%"
 )
 popd
 
 :: Define the correct path to the AltVersionList.txt
-set "CURRENT_VERSION_LIST=%SCRIPT_DIR%CurrentVersionList.txt"
+set "PRIMARY_VERSION_LIST=%SCRIPT_DIR%PrimaryVersionList.txt"
 
-:: Delete Current Version parsed from AltVersionList.txt
-if exist "%CURRENT_VERSION_LIST%" (
-    for /f "usebackq delims=" %%F in ("%CURRENT_VERSION_LIST%") do (
+:: Delete Primary Version parsed from AltVersionList.txt
+if exist "%PRIMARY_VERSION_LIST%" (
+    for /f "usebackq delims=" %%F in ("%PRIMARY_VERSION_LIST%") do (
         if exist "%%F" (
             del /f /q "%%F"
             echo Deleted: %%F
@@ -176,7 +174,7 @@ if exist "%CURRENT_VERSION_LIST%" (
         )
     )
 ) else (
-    echo *** CurrentVersionList.txt NOT FOUND. ABORTING ***
+    echo *** PrimaryVersionList.txt NOT FOUND. ABORTING ***
     goto EXIT
 )
 
@@ -197,13 +195,12 @@ for /f "usebackq delims=" %%F in ("%AltOutputFile%") do (
 )
 
 if "!AltFilesPresent!"=="true" (
-    REG ADD "HKEY_CURRENT_USER\Software\GTAV_ALT" /v "installed" /t REG_SZ /d "" /f
+    REG ADD "HKCU\Software\GTAV_ALT" /v "installed" /t REG_SZ /d "" /f
     goto INSTALLED
 ) else (
     echo [ERROR] Not all files were installed. Aborting.
     goto EXIT
 )
-
 
 :ALTREMOVE
 :: Define the correct path to the AltVersionList.txt
@@ -224,19 +221,19 @@ if exist "%ALT_VERSION_LIST%" (
     goto EXIT
 )
 
-:: Move default files back to game directory
+:: Move primary files back to game directory
 for /f "usebackq delims=" %%F in ("%SCRIPT_DIR%AltVersionList.txt") do del "%%F" 2>nul
 for %%F in (bink2w64.dll GTA5.exe GTAVLanguageSelect.exe GTAVLauncher.exe PlayGTAV.exe) do move "%DEFAULT_FILES%\%%F" "%GTAV_DIR%" >nul
 for %%F in (update.rpf update2.rpf) do move "%DEFAULT_FILES%\update\%%F" "%GTAV_DIR%\update" >nul
 
-:: use Alt Version settings.xml
+:: Use Normal settings.xml
 del "%SETTINGS_DIR%\settings.xml" /f
 xcopy "%SCRIPT_DIR%Settings\Normal\*.*" "%SETTINGS_DIR%" /s /f /i /y
 
-:: Copy Extra Current Version files to game directory
-xcopy "%CURRENT_VERSION_DIR%\*.*" "%GTAV_DIR%" /s /f /i /y
+:: Copy Extra Primary Version files to game directory
+xcopy "%PRIMARY_VERSION_DIR%\*.*" "%GTAV_DIR%" /s /f /i /y
 
-:: Confirm Current Version files are installed
+:: Confirm Primary Version files are installed
 set "CurFilesPresent=true"
 for /f "usebackq delims=" %%F in ("%CurOutputFile%") do (
     if not exist "%%F" (
@@ -246,7 +243,7 @@ for /f "usebackq delims=" %%F in ("%CurOutputFile%") do (
 )
 
 if "!CurFilesPresent!"=="true" (
-	REG DELETE "HKEY_CURRENT_USER\Software\GTAV_ALT" /v "installed" /f
+    REG DELETE "HKCU\Software\GTAV_ALT" /v "installed" /f
     goto REMOVED
 ) else (
     echo [ERROR] Not all files were installed. Aborting.
@@ -265,7 +262,6 @@ echo ██ ██   ████ ██████    ██   ██  ██ 
 echo.  
 goto EXIT
 
-
 :REMOVED
 echo.
 echo ███████  ██████    ██   ██     █████  ██    ██ ██████ ██████
@@ -282,6 +278,6 @@ goto EXIT
 set "GTAV_DIR="
 set "ALT_VERSION_DIR="
 set "SETTINGS_DIR="
-set "CURRENT_VERSION_DIR="
+set "PRIMARY_VERSION_DIR="
 pause
 exit
