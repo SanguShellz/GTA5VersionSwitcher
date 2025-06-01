@@ -25,7 +25,7 @@ This is the folder to store an alternate version of the GTA V installation (e.g.
 	- You may need to run the batch file as administrator to create this folder.
 
 - **`PRIMARY_VERSION_DIR`**  
-This is the folder containing files that will be moved the GTA V game isntall directory (e.g., `.ini`, `.dll` files).  
+This folder cah c9hta8h files mods or other files and folder that will be moved to the GTA V game install directory when swithciing back to Primary.  
 	- This directory can remain empty, but it **must exist**.  
 	- Files in this directory will be copied to or deleted from the game directory depending on selection made in the batch CLI.
 
