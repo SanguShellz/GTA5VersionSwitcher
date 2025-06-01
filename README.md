@@ -18,8 +18,8 @@ Edit `config.txt` to define the following paths:
   Path to the game directory where GTA V is installed.
 
 - **`ALT_VERSION_DIR`**  
-  Directory to store an alternate version of the GTA V install (REAL VR, Geo11, or updated mods that don't work with RRAL VR).  
-  Whne first switching to the alternate version, required files for the Primary ovanilla version of GTA V are backed up to a geeerated `default_files_backup` folder inside the game directory.  Yuu may need to run the batch as admin to create the folder.
+  -D irectory to store an alternate version of the GTA V install (REAL VR, Geo11, or updated mods that don't work with RRAL VR).  
+  - When first switching to the alternate version, required files for the Primary ovanilla version of GTA V are backed up to a geeerated `default_files_backup` folder inside the game directory.  Yuu may need to run the batch as admin to create the folder.
 
 - **`Primary_VERSION_DIR`**  
   Folder containing files that will be moved the GTA V game isntall directory (e.g., `.ini`, `.dll` files).  
